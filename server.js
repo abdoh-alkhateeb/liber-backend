@@ -16,6 +16,10 @@ app.use("/api/threads", threadsRoutes);
 app.use("/api/posts", postsRoutes);
 app.use("/api/comments", commentsRoutes);
 
+app.get("/health", (req, res) => {
+  res.sendStatus(200);
+});
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
